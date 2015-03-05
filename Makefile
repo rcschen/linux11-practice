@@ -1,13 +1,17 @@
 include Makefile.header
+ROOT_DEV= #FLOPPY 
 
 all: Image
+
 Image: boot/bootsect
-	@echo ccccomplete
+	@tools/build.sh boot/bootsect boot/setup toos/kernel Image $(ROOT_DEV)
+	@echo ccccomplete $(ROOT_DEV)
 
 boot/bootsect: boot/bootsect.s
 	@make bootsect -C boot
 
 clean:
+	@rm -f Image
 	@for i in boot; do make clean -C $$i; done
 
 debug:
