@@ -1,5 +1,9 @@
 include Makefile.header
+#LDFLAGS += -Ttext 0 -e startup_32
+#CPP	+= -Iinclude
+
 ROOT_DEV= #FLOPPY 
+
 
 all: Image
 
